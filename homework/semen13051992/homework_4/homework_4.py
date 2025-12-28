@@ -1,11 +1,11 @@
 my_dict = {
-    'tuple' : (1, 2.2, False, 'text2', 8),
-    'list' : [1.4, 2, True, 'text', 5],
-    'dict' : {'one' : 'value',
-              'two' : 'value2',
-              'three' : 'value3',
-              'four' : 'value4',
-              'five' : 'value5'},
+    'tuple':(1, 2.2, False, 'text2', 8),
+    'list':[1.4, 2, True, 'text', 5],
+    'dict':{'one':'value',
+              'two':'value2',
+              'three':'value3',
+              'four':'value4',
+              'five':'value5'},
     'set' : {1, 'twoo', 3, False, 2.45}
 }
 
