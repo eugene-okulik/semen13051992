@@ -15,7 +15,7 @@ my_dict['list'].append('text3')
 my_dict['list'].pop(1)
 print(my_dict['list'])
 
-my_dict['dict']['i am a tuple'] = 'text3473'
+my_dict['dict'][('i am a tuple',)] = 45234
 my_dict['dict'].pop('one')
 print(my_dict['dict'])
 
