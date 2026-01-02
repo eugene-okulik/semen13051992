@@ -11,7 +11,7 @@ for i in text.split():
     if ',' in i:
         i = i.replace(',', '')
         new_text.append(i + a + ',')
-    elif  '.' in i:
+    elif '.' in i:
         i = i.replace('.', '')
         new_text.append(i + a + '.')
     else:
