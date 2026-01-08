@@ -15,6 +15,7 @@ salary_bonus(20000)
 salary_bonus(30000)
 '''
 
+
 def salary_bonus2():
     salary = int(input())
     bonus = [True, False]
