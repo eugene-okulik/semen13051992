@@ -16,5 +16,5 @@ print(list_int)
 list_str = list(map(str, new_list[0::2]))
 print(list_str)
 
-list1 = dict(zip(list_str, list_int))
-print(list1)
+new_list2 = dict(zip(list_str, list_int))
+print(new_list2)

@@ -1,11 +1,11 @@
 def operation(func):
 
-
     def wrapper(*args, **kwargs):
         func(*args, **kwargs)
         return func
 
     return wrapper
+
 
 @operation
 def calc(first, second):
@@ -23,7 +23,7 @@ def calc(first, second):
         return first * second
 
 
-print(calc(3,3))
-print(calc(3,2))
-print(calc(2,3))
-print(calc(-2,3))
+print(calc(3, 3))
+print(calc(3, 2))
+print(calc(2, 3))
+print(calc(-2, 3))

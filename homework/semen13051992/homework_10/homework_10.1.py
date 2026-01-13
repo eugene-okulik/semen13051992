@@ -4,8 +4,8 @@ def finish_me(func):
         func(text)
         print('finished')
 
-
     return wrapper
+
 
 @finish_me
 def example(text):
