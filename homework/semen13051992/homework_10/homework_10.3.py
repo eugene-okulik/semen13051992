@@ -7,7 +7,7 @@ def operation(func):
             return func(first, second, '-')
         elif first < second:
             return func(first, second, '/')
-        elif first < 0 or  second < 0:
+        elif first < 0 or second < 0:
             return func(first, second, '*')
     return wrapper
 
