@@ -1,25 +1,26 @@
 def operation(func):
 
-    def wrapper(*args, **kwargs):
-        func(*args, **kwargs)
-        return func
-
+    def wrapper(first, second, *args, **kwargs):
+        if first == second:
+            return func(first, second, '+')
+        elif first > second:
+            return func(first, second, '-')
+        elif first < second:
+            return func(first, second, '/')
+        elif first < 0 or  second < 0:
+            return func(first, second, '*')
     return wrapper
 
 
 @operation
-def calc(first, second):
-    if first == second:
-        print(first + second)
+def calc(first, second, operation):
+    if operation == '+':
         return first + second
-    elif first > second:
-        print(first - second)
+    elif operation == '-':
         return first - second
-    elif first < second:
-        print(second / first)
+    elif operation == '/':
         return first / second
-    elif first < 0 or second < 0:
-        print(first * second)
+    elif operation == '*':
         return first * second
 
 
@@ -27,3 +28,4 @@ print(calc(3, 3))
 print(calc(3, 2))
 print(calc(2, 3))
 print(calc(-2, 3))
+print(calc(2, -3))

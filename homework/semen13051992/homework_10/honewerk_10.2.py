@@ -1,7 +1,7 @@
 def repeat_me(func):
 
-    def wrapper(a):
-        for i in range(2):
+    def wrapper(a, count):
+        for i in range(count):
             func(a)
 
     return wrapper
@@ -12,4 +12,4 @@ def example(text):
     print(text)
 
 
-example('print me')
+example('print me', count = 5)
