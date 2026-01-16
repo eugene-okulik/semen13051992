@@ -27,10 +27,10 @@ boock_2 = Book('Идиот', 'Достоевский', 500, False)
 boock_3 = Schoolbooks('Алгебра', 'Иванов', 200, True)
 boock_4 = Schoolbooks('Алгебра', 'Иванов', 200, False)
 
-print('Название:',boock_1.name_book + ',', 'Автор:', boock_1.author + ',',
+print('Название:', boock_1.name_book + ',', 'Автор:', boock_1.author + ',',
       'страниц:', str(boock_1.pages) + ',', 'материал:', boock_1.page_material + ',',
       boock_1.reserv)
-print('Название:',boock_2.name_book + ',', 'Автор:', boock_2.author + ',',
+print('Название:', boock_2.name_book + ',', 'Автор:', boock_2.author + ',',
       'страниц:', str(boock_2.pages) + ',', 'материал:', boock_2.page_material,
       boock_2.reserv)
 print('Название:', boock_3.name_book + ',', 'Автор:', boock_3.author + ',',
