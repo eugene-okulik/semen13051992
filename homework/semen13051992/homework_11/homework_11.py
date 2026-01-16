@@ -2,11 +2,9 @@ class Book:
     page_material = 'бумага'
     presence_text = True
 
-
     def reserv(self):
         if self.flag:
             print('зарезервирована')
-
 
     def __init__(self, name_book, author, pages, flag=True):
         self.name_book = name_book
@@ -19,7 +17,6 @@ class Schoolbooks(Book):
     object = 'Математика'
     clas = 9
     tasks = True
-
 
     def __init__(self, name_book, author, pages, flag):
         super().__init__(name_book, author, pages, flag)
