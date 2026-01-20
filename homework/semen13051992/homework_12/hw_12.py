@@ -71,9 +71,8 @@ class Bouquet:
         avg_price = [x for x in self.flower if x.price > bouquets.price_avg()]
         return bouquets.sort_name(avg_price)
 
-
-    def below_price_avg(self, tolerance=0):
-        below_price =  [x for x in self.flower if x.price < bouquets.price_avg()]
+    def below_price_avg(self):
+        below_price = [x for x in self.flower if x.price < bouquets.price_avg()]
         return bouquets.sort_name(below_price)
 
     def color_white(self):
@@ -81,7 +80,7 @@ class Bouquet:
         return bouquets.sort_color(color)
 
     def color_red(self):
-        color =  [x for x in self.flower if x.color == 'Красный']
+        color = [x for x in self.flower if x.color == 'Красный']
         return bouquets.sort_color(color)
 
     def sort_name(self, arg):
