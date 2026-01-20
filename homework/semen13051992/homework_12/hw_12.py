@@ -1,4 +1,4 @@
-class Bouquet:
+class Flowers:
 
     def __init__(self, name, color, stem_length, freshness, price, lifetime):
         self.name = name
@@ -9,44 +9,44 @@ class Bouquet:
         self.lifetime = lifetime
 
     def __str__(self):
-        return f"{self.name} {self.color} {self.price}р,"
+        return f"{self.name} ({self.color} {self.price}р)"
 
     def __repr__(self):
-        return f"{self.name}({self.color}, {self.price}р)"
+        return f"{self.name} ({self.color}, {self.price}р)"
 
 
-class Lily(Bouquet):
-    def __init__(self, name, color, stem_length, freshness, price, lifetime):
-        super().__init__(name, color, stem_length, freshness, price, lifetime)
+class Lily(Flowers):
+    def __init__(self, color, stem_length, freshness, price, lifetime):
+        super().__init__('Лилия', color, stem_length, freshness, price, lifetime)
 
 
-class Violet(Bouquet):
-    def __init__(self, name, color, stem_length, freshness, price, lifetime):
-        super().__init__(name, color, stem_length, freshness, price, lifetime)
+class Violet(Flowers):
+    def __init__(self, color, stem_length, freshness, price, lifetime):
+        super().__init__('Фиолент', color, stem_length, freshness, price, lifetime)
 
 
-class Tulip(Bouquet):
-    def __init__(self, name, color, stem_length, freshness, price, lifetime):
-        super().__init__(name, color, stem_length, freshness, price, lifetime)
+class Tulip(Flowers):
+    def __init__(self, color, stem_length, freshness, price, lifetime):
+        super().__init__('Тюльпан', color, stem_length, freshness, price, lifetime)
 
 
-class Gladioli(Bouquet):
-    def __init__(self, name, color, stem_length, freshness, price, lifetime):
-        super().__init__(name, color, stem_length, freshness, price, lifetime)
+class Gladioli(Flowers):
+    def __init__(self, color, stem_length, freshness, price, lifetime):
+        super().__init__('Гладиолус', color, stem_length, freshness, price, lifetime)
 
 
-class Rose(Bouquet):
-    def __init__(self, name, color, stem_length, freshness, price, lifetime):
-        super().__init__(name, color, stem_length, freshness, price, lifetime)
+class Rose(Flowers):
+    def __init__(self, color, stem_length, freshness, price, lifetime):
+        super().__init__('Роза', color, stem_length, freshness, price, lifetime)
 
 
-flower_1 = Lily('Лилия', 'Белый', 50, 'fresh', 100, 5)
-flower_2 = Violet('Фиолент', 'Фиолетовый', 50, 'fresh', 80, 7)
-flower_3 = Tulip('Тюльпан', 'Красный', 50, 'fresh', 110, 6)
-flower_4 = Gladioli('Гладиолус', 'Синий', 50, 'fresh', 90, 8)
-flower_5 = Rose('Роза', 'Желтый', 50, 'fresh', 120, 7)
+flower_1 = Lily('Белый', 40, 'fresh', 100, 5)
+flower_2 = Violet('Фиолетовый', 50, 'fresh', 80, 7)
+flower_3 = Tulip('Красный', 45, 'fresh', 110, 6)
+flower_4 = Gladioli('Синий', 43, 'fresh', 90, 8)
+flower_5 = Rose('Желтый', 48, 'fresh', 120, 7)
 
-bouquet = [flower_1, flower_2, flower_3, flower_4, flower_5]
+flowers = [flower_1, flower_2, flower_3, flower_4, flower_5]
 
 
 class Bouquet:
@@ -60,29 +60,46 @@ class Bouquet:
         return sum(x.lifetime for x in self.flower) / len(self.flower)
 
     def above_avg(self):
-        avg_life = bouquets.avg_lifetime()
-        return [x.name for x in self.flower if x.lifetime > avg_life]
+        avg_life = [x for x in self.flower if x.lifetime > bouquets.avg_lifetime()]
+        avg = sorted(avg_life, key=lambda x: x.name)
+        return avg
 
     def price_avg(self):
         return sum(x.price for x in self.flower) / len(self.flower)
 
     def above_price_avg(self):
-        avg_price = bouquets.price_avg()
-        return [x.name for x in self.flower if x.price > avg_price]
+        avg_price = [x for x in self.flower if x.price > bouquets.price_avg()]
+        return bouquets.sort_name(avg_price)
+
 
     def below_price_avg(self, tolerance=0):
-        return [x.name for x in self.flower if x.price < bouquets.price_avg()]
+        below_price =  [x for x in self.flower if x.price < bouquets.price_avg()]
+        return bouquets.sort_name(below_price)
 
     def color_white(self):
-        return [x.name for x in self.flower if x.color == 'Белый']
+        color = [x for x in self.flower if x.color == 'Белый']
+        return bouquets.sort_color(color)
 
     def color_red(self):
-        return [x.name for x in self.flower if x.color == 'Красный']
+        color =  [x for x in self.flower if x.color == 'Красный']
+        return bouquets.sort_color(color)
+
+    def sort_name(self, arg):
+        return sorted(arg, key=lambda x: x.name)
+
+    def sort_color(self, arg):
+        return sorted(arg, key=lambda x: x.color)
+
+    def sort_stem_length(self, arg):
+        return sorted(arg, key=lambda x: x.stem_length)
+
+    def sort_price(self, arg):
+        return sorted(arg, key=lambda x: x.price)
 
 
-bouquets = Bouquet(bouquet)
+bouquets = Bouquet(flowers)
 
-print(bouquet)
+print(flowers)
 print(f"Стоимость букета: {bouquets.bouquet_price()}р.")
 print(f"Среднее время жизни цветов: {bouquets.avg_lifetime()} дней.")
 print(f"Цветы время жизни которых выше среднего {bouquets.avg_lifetime()} дней: {bouquets.above_avg()}")
@@ -91,3 +108,6 @@ print(f"Цветы стоимость которых выше средней ц�
 print(f"Цветы стоимость которых ниже средней цены {bouquets.price_avg()}р: {bouquets.below_price_avg()}")
 print(f"Цветы цвет которых Белый: {bouquets.color_white()}")
 print(f"Цветы цвет которых Красный: {bouquets.color_red()}")
+print(f"Цветы отсортированные по длине стебля: {bouquets.sort_stem_length(flowers)}")
+print(f"Цветы отсортированные по стоимости: {bouquets.sort_price(flowers)}")
+print(f"Цветы отсортированные по названию: {bouquets.sort_name(flowers)}")
