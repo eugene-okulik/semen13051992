@@ -71,7 +71,6 @@ class Bouquet:
         avg_price = [x for x in self.flower if x.price > bouquets.price_avg()]
         return bouquets.sort_name(avg_price)
 
-
     def below_price_avg(self):
         below_price = [x for x in self.flower if x.price < bouquets.price_avg()]
         return bouquets.sort_name(below_price)
