@@ -71,29 +71,19 @@ class Bouquet:
         avg_price = [x for x in self.flower if x.price > bouquets.price_avg()]
         return bouquets.sort_name(avg_price)
 
+
     def below_price_avg(self):
         below_price = [x for x in self.flower if x.price < bouquets.price_avg()]
         return bouquets.sort_name(below_price)
 
-    def color_white(self):
-        color = [x for x in self.flower if x.color == 'Белый']
-        return bouquets.sort_color(color)
+    def sort_name(self, *args):
+        return sorted(self.flower, key=lambda x: x.name)
 
-    def color_red(self):
-        color = [x for x in self.flower if x.color == 'Красный']
-        return bouquets.sort_color(color)
+    def sort_stem_length(self, *args):
+        return sorted(self.flower, key=lambda x: x.stem_length)
 
-    def sort_name(self, arg):
-        return sorted(arg, key=lambda x: x.name)
-
-    def sort_color(self, arg):
-        return sorted(arg, key=lambda x: x.color)
-
-    def sort_stem_length(self, arg):
-        return sorted(arg, key=lambda x: x.stem_length)
-
-    def sort_price(self, arg):
-        return sorted(arg, key=lambda x: x.price)
+    def sort_price(self, *args):
+        return sorted(self.flower, key=lambda x: x.price)
 
 
 bouquets = Bouquet(flowers)
@@ -105,8 +95,6 @@ print(f"Цветы время жизни которых выше среднег�
 print(f"Средняя стоимость цветов: {bouquets.price_avg()}р")
 print(f"Цветы стоимость которых выше средней цены {bouquets.price_avg()}р: {bouquets.above_price_avg()}")
 print(f"Цветы стоимость которых ниже средней цены {bouquets.price_avg()}р: {bouquets.below_price_avg()}")
-print(f"Цветы цвет которых Белый: {bouquets.color_white()}")
-print(f"Цветы цвет которых Красный: {bouquets.color_red()}")
 print(f"Цветы отсортированные по длине стебля: {bouquets.sort_stem_length(flowers)}")
 print(f"Цветы отсортированные по стоимости: {bouquets.sort_price(flowers)}")
 print(f"Цветы отсортированные по названию: {bouquets.sort_name(flowers)}")
