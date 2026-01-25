@@ -46,7 +46,7 @@ def converting_python_date(date_line):
 def python_date():
     for line in open_data2():
         if '1.' in line:
-            date_line =  line.replace('1. ', '')
+            date_line = line.replace('1. ', '')
             date = converting_python_date(date_line)
             date_1 = date + datetime.timedelta(weeks=1)
             print(f'Дата на неделю позже {date_1}')
