@@ -48,8 +48,8 @@ def python_date():
         elif '2.' in line:
             date_line = line.replace('2. ', '')
             date = converting_python_date(date_line)
-            date_2 = date.isoweekday()
-            print(f'День недели {date_2} {date.strftime('%A')}')
+            date_2 = str(date.isoweekday()) + ' ' + str(date.strftime('%A'))
+            print(f'День недели {date_2}')
         elif '3.' in line:
             date_line = line.replace('3. ', '')
             date = converting_python_date(date_line)
