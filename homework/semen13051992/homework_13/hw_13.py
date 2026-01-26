@@ -1,22 +1,18 @@
 import os
 import datetime
 
-current_dir = os.getcwd()
-print(f"Текущий каталог: {current_dir}")
+base_path = os.path.dirname(__file__)
 
-current_file = os.path.join(current_dir, 'homework_13', 'hw_13.py')
-print(f"Путь к файлу: {current_file}")
+homework_path = os.path.dirname(os.path.dirname(base_path))
+eugene_file_path = os.path.join(homework_path, 'eugene_okulik', 'hw_13', 'data.txt')
+print(eugene_file_path)
 
-data_file = os.path.join(os.path.dirname(os.path.dirname(current_dir)), 'eugene_okulik', 'hw_13', 'data.txt')
-print(f"Путь к файлу data.txt: {data_file}")
-
-exists = os.path.exists(data_file)
-print(f"Файл data.txt существует: {exists}" if exists else False)
+with open(eugene_file_path, encoding='utf-8') as eugene_file:
+    print(eugene_file.read())
 
 
 def read_file():
-    with open(data_file, encoding='utf-8') as file:
-        # print(file.read())
+    with open(eugene_file_path, encoding='utf-8') as file:
         for line in file:
             yield line
 
