@@ -1,7 +1,6 @@
 insert into students (name, second_name) values ('Semen', 'Palchun')
 insert into books (title, taken_by_student_id) values ('python', 22145)
 insert into books (title, taken_by_student_id) values ('sql', 22145)
-insert into books (title, taken_by_student_id) values ('jawa', 22145)
 insert into `groups` (title, start_date, end_date) values ('Python Auto QA', 'jan 26', 'apr 26')
 insert into subjects (title) values ('python')
 insert into subjects (title) values ('sql')
