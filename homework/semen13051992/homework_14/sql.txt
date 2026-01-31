@@ -2,6 +2,9 @@ insert into students (name, second_name) values ('Semen', 'Palchun')
 insert into books (title, taken_by_student_id) values ('python', 22145)
 insert into books (title, taken_by_student_id) values ('sql', 22145)
 insert into `groups` (title, start_date, end_date) values ('Python Auto QA', 'jan 26', 'apr 26')
+
+update students set group_id = 21874 where name = 'Semen' and second_name = 'Palchun'
+
 insert into subjects (title) values ('python')
 insert into subjects (title) values ('sql')
 insert into lessons (title, subject_id) values ('python lesson1', 13624)
