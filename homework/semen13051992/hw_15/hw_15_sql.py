@@ -13,7 +13,7 @@ cursor = db.cursor(dictionary=True)
 cursor.execute("insert into students (name, second_name) values ('Semen', 'Palchun')")
 student_id = cursor.lastrowid
 
-insert_books = f'insert into books (title, taken_by_student_id) values (%s, %s)'
+insert_books = 'insert into books (title, taken_by_student_id) values (%s, %s)'
 cursor.executemany(
     insert_books, [
         ('python', student_id),
@@ -26,9 +26,9 @@ groups_id = cursor.lastrowid
 
 cursor.execute(f"update students set group_id = {groups_id} where id = {student_id}")
 
-cursor.execute(f"insert into subjects (title) values ('python')")
+cursor.execute("insert into subjects (title) values ('python')")
 subjects_id1 = cursor.lastrowid
-cursor.execute(f"insert into subjects (title) values ('sql')")
+cursor.execute("insert into subjects (title) values ('sql')")
 subjects_id2 = cursor.lastrowid
 
 cursor.execute(f"insert into lessons (title, subject_id) values ('python lesson1', {subjects_id1})")
