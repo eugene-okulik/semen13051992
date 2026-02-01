@@ -52,10 +52,10 @@ cursor.executemany(
 
 db.commit()
 
-cursor.execute(f"select value from marks where student_id = 22196")
+cursor.execute(f"select value from marks where student_id = {student_id}")
 print(cursor.fetchall())
 
-cursor.execute(f"select title from books where taken_by_student_id = 22196")
+cursor.execute(f"select title from books where taken_by_student_id = {student_id}")
 print(cursor.fetchall())
 
 select_query = f'''
