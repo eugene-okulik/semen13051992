@@ -52,20 +52,23 @@ cursor.executemany(
 
 db.commit()
 
-cursor.execute(f"select value from marks where student_id = {student_id}")
+cursor.execute(f"select value from marks where student_id = 22196")
 print(cursor.fetchall())
 
-cursor.execute(f"select title from books where taken_by_student_id = {student_id}")
+cursor.execute(f"select title from books where taken_by_student_id = 22196")
 print(cursor.fetchall())
 
-cursor.execute("select s.name, s.second_name, b.title, g.title, g.start_date, g.end_date, m.value, l.title, sb.title"
-               "from students s"
-               "join books b on s.id = b.taken_by_student_id"
-               "join `groups` g on s.group_id = g.id"
-               "join marks m on s.id = m.student_id"
-               "join lessons l on m.lesson_id = l.id"
-               "join subjects sb on l.subject_id = sb.id"
-               f"where s.id = {student_id}")
+select_query = f'''
+select s.id, s.name, s.second_name, b.title, g.title, g.start_date, g.end_date, m.value, l.title, sb.title
+from students s
+join books b on s.id = b.taken_by_student_id
+join `groups` g on s.group_id = g.id
+join marks m on s.id = m.student_id
+join lessons l on m.lesson_id = l.id
+join subjects sb on l.subject_id = sb.id
+where s.id = {student_id}
+'''
+cursor.execute(select_query)
 print(cursor.fetchall())
 
 db.close()
