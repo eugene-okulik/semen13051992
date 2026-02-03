@@ -1,0 +1,29 @@
+insert into students (name, second_name) values ('Semen', 'Palchun')
+insert into books (title, taken_by_student_id) values ('python', 22145)
+insert into books (title, taken_by_student_id) values ('sql', 22145)
+insert into `groups` (title, start_date, end_date) values ('Python Auto QA', 'jan 26', 'apr 26')
+
+update students set group_id = 21874 where name = 'Semen' and second_name = 'Palchun'
+
+insert into subjects (title) values ('python')
+insert into subjects (title) values ('sql')
+insert into lessons (title, subject_id) values ('python lesson1', 13624)
+insert into lessons (title, subject_id) values ('python lesson2', 13624)
+insert into lessons (title, subject_id) values ('sql lesson1', 13625)
+insert into lessons (title, subject_id) values ('sql lesson2', 13625)
+insert into marks (value, lesson_id, student_id) values ('5', 74410, 22145)
+insert into marks (value, lesson_id, student_id) values ('7', 74411, 22145)
+insert into marks (value, lesson_id, student_id) values ('8', 74412, 22145)
+insert into marks (value, lesson_id, student_id) values ('6', 74413, 22145)
+
+select * from marks where student_id = 22145
+select * from books where taken_by_student_id = 22145
+
+select * 
+from students s 
+join `groups` g on s.group_id = g.id
+join books b on s.id = b.taken_by_student_id
+join marks m on s.id = m.student_id
+join lessons l on m.lesson_id = l.id
+join subjects sb on l.subject_id = sb.id
+where student_id = 22145
