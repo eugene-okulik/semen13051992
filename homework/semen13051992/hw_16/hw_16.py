@@ -19,7 +19,7 @@ db = mysql.connect(
 
 cursor = db.cursor(dictionary=True)
 
-select_query = f'''
+select_query = '''
 select *
 from students s
 join books b on s.id = b.taken_by_student_id
@@ -35,6 +35,6 @@ with open(eugene_file_csv, newline='') as csv_file:
     file_data = csv.DictReader(csv_file)
     for row in file_data:
         if row not in db_result:
-           print(row)
+            print(row)
 
 db.close()
