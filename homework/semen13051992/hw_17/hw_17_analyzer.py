@@ -19,5 +19,5 @@ for file in os.listdir(args.files):
                     stat_index = index - 5
                     if stat_index < 0:
                         stat_index = 0
-                    result = file, date, line_split[stat_index:index + 6]
-                    print(" ".join((map(str, result))))
+                    s = line_split[stat_index:index + 6]
+                    print(file, str(' '.join(date)), ' '.join([str(elem) for elem in s]))
