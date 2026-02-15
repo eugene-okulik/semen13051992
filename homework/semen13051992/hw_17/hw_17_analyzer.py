@@ -21,4 +21,4 @@ for file in os.listdir(args.files):
                         stat_index = 0
                     print(file)
                     print(date)
-                    print(line_split[stat_index:index+6])
+                    print(line_split[stat_index:index + 6])
