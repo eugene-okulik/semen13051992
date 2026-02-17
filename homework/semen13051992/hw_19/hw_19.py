@@ -23,8 +23,8 @@ def new_post():
     body = {
         "data":
         {
-        "qcolor": "wblue",
-        "ssize": "fsmall"
+            "qcolor": "wblue",
+            "ssize": "fsmall"
         },
         "id": 1,
         "name": "crabbit"
@@ -45,8 +45,8 @@ def put_a_post():
     body = {
         "data":
         {
-        "qcdgolor": "wbdglue",
-        "sdgsize": "fsmaldgl"
+            "qcdgolor": "wbdglue",
+            "sdgsize": "fsmaldgl"
         },
         "id": 1,
         "name": "crabgdgdbit"
