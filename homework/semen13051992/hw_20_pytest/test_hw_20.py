@@ -100,10 +100,13 @@ def test_delete_a_object(new_object, test):
     assert response.status_code == 200
 
 
-'''
-@pytest.mark.parametrize('color', ["red", "blue", "gold"],
-                        'size',["average", "big", "little"],
-                         'name',["acrylic", "oil painting"])
+@pytest.mark.parametrize('color, size, name',
+                        [
+                            ("red", "blue", "gold"),
+                            ("average", "big", "little"),
+                            ("acrylic", "oil", "painting")
+                        ]
+                        )
 
 
 def test_new_object(color, size, name):
@@ -125,4 +128,4 @@ def test_new_object(color, size, name):
     print(object_id)
     print('deleting the post')
     requests.delete(f'https://jsonplaceholder.typicode.com/posts/{object_id}')
-'''
+
