@@ -108,14 +108,8 @@ def test_delete_a_object(new_object, test):
         ("average", "big", "little"),
         ("acrylic", "oil", "painting")
     ])
-
 def test_new_object(color, size, name):
-    body = {"data":
-                {
-                    "color": color,
-                    "size": size
-                },
-                    "name": name}
+    body = {"data":{"color": color,"size": size},"name": name}
     headers = {'User-Agent': 'PostmanRuntime/7.51.1'}
     response = requests.post(
         'http://objapi.course.qa-practice.com/object',
