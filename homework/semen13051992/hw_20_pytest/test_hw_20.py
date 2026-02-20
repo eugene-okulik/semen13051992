@@ -116,8 +116,8 @@ def test_new_object(color, size, name):
                 "color": color,
                 "size": size
             },
-        "name": name
-    }
+                "name": name
+           }
     headers = {'User-Agent': 'PostmanRuntime/7.51.1'}
     response = requests.post(
         'http://objapi.course.qa-practice.com/object',
