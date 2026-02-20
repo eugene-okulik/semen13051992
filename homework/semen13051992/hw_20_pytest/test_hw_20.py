@@ -93,6 +93,7 @@ def test_patch_a_object(new_object, test):
     assert response.status_code == 200
     assert response.json()['id'] == new_object
 
+
 def test_delete_a_object(new_object, test):
     response = requests.delete(f'http://objapi.course.qa-practice.com/object/{new_object}')
     print(response)
@@ -100,13 +101,14 @@ def test_delete_a_object(new_object, test):
     assert response.status_code == 200
 
 
-@pytest.mark.parametrize('color, size, name',
-                        [
-                            ("red", "blue", "gold"),
-                            ("average", "big", "little"),
-                            ("acrylic", "oil", "painting")
-                        ]
-                        )
+@pytest.mark.parametrize(
+    'color, size, name',
+    [
+        ("red", "blue", "gold"),
+        ("average", "big", "little"),
+        ("acrylic", "oil", "painting")
+    ]
+        )
 
 
 def test_new_object(color, size, name):
@@ -128,4 +130,3 @@ def test_new_object(color, size, name):
     print(object_id)
     print('deleting the post')
     requests.delete(f'https://jsonplaceholder.typicode.com/posts/{object_id}')
-
