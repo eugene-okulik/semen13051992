@@ -104,7 +104,7 @@ def test_delete_a_object(new_object, tests):
     [
         ("red", "blue", "gold"),
         ("average", "big", "little"),
-        ("acrylic", "oil", "painting")
+        ("acrylicq", "oil", "painting")
     ])
 def test_new_object(color, size, name):
     body = {
