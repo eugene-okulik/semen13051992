@@ -25,12 +25,12 @@ def test_all_object(hello, tests):
 
 
 @pytest.mark.medium
-def test_one_post(tests):
-    response = requests.get('http://objapi.course.qa-practice.com/object/1')
+def test_one_post(new_object, tests):
+    response = requests.get(f'http://objapi.course.qa-practice.com/object/{new_object}')
     print(response.json())
     print(response.status_code)
     assert response.status_code == 200
-    assert response.json()['id'] == 1
+    assert response.json()['id'] == new_object
 
 
 @pytest.fixture()
@@ -52,9 +52,7 @@ def new_object():
     object_id = response.json()['id']
     print(object_id)
     yield object_id
-    response = requests.delete(f'http://objapi.course.qa-practice.com/object/{new_object}')
-    print(response)
-    print(response.status_code)
+    requests.delete(f'http://objapi.course.qa-practice.com/object/{new_object}')
 
 
 def test_put_a_object(new_object, tests):
@@ -75,6 +73,7 @@ def test_put_a_object(new_object, tests):
     print(response.json())
     print(response.status_code)
     assert response.status_code == 200
+    assert response.json()['id'] == str(new_object)
 
 
 def test_patch_a_object(new_object, tests):
@@ -90,6 +89,7 @@ def test_patch_a_object(new_object, tests):
     print(response.json())
     print(response.status_code)
     assert response.status_code == 200
+    assert response.json()['id'] == new_object
 
 
 def test_delete_a_object(new_object, tests):
