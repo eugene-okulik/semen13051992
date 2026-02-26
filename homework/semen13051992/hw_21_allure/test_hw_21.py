@@ -10,7 +10,7 @@ import allure
 def test_all_object(hello, tests):
     with allure.step('Run request to get a object'):
         response = requests.get('http://objapi.course.qa-practice.com/object')
-    with allure.step(f'All object. Check response code is 200'):
+    with allure.step('All object. Check response code is 200'):
         assert response.status_code == 200
 
 
