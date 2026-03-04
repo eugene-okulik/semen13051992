@@ -4,7 +4,6 @@ from endpoints.delete_object import DeleteObject
 from endpoints.update_put_object import UpdateObjectPut
 from endpoints.update_patch_object import UpdateObjectPatch
 
-
 @pytest.fixture()
 def create_object_endpoint():
     return CreateObject()
