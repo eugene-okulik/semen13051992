@@ -1,11 +1,10 @@
 import requests
 import allure
-from test_api_semjonpalchun.endpoints.endpoint import Endpoint
+from semen13051992.test_api_semjonpalchun.endpoints.endpoint import Endpoint
 
 
 class DeleteObject(Endpoint):
     object_id = None
-
 
 
     @allure.step('Delete object')
