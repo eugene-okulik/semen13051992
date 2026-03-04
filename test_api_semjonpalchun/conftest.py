@@ -27,6 +27,6 @@ def delete_object_endpoint():
 
 @pytest.fixture()
 def object_id(create_object_endpoint):
-    body = {"data":{"color": "blue","size": "big"},"name": "crabbit"}
+    body = {"data": {"color": "blue", "size": "big"}, "name": "crabbit"}
     create_object_endpoint.create_new_object(body)
     yield create_object_endpoint.object_id
