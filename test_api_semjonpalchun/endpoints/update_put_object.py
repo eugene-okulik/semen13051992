@@ -5,7 +5,9 @@ from semen13051992.test_api_semjonpalchun.endpoints.endpoint import Endpoint
 
 
 class UpdateObjectPut(Endpoint):
-
+    @allure.feature("test_api")
+    @allure.story("test_put_object")
+    @allure.title("Обновление объекта")
     @allure.step('Update a object put')
     def update_object_put(self, object_id, body, headers=None):
         headers = headers if headers else self.headers
