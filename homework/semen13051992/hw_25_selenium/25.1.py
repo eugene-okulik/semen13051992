@@ -5,10 +5,8 @@ from selenium.webdriver.common.keys import Keys
 
 text = 'cat'
 
-options = Options()
-options.add_argument('start-maximized')
-driver = webdriver.Chrome(options=options)
-# driver.maximize_window()
+driver = webdriver.Chrome()
+driver.maximize_window()
 driver.get('https://www.qa-practice.com/elements/input/simple')
 search_input = driver.find_element(By.NAME, 'text_string')
 search_input.send_keys(text)
