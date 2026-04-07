@@ -7,12 +7,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
 @pytest.fixture()
 def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()
-    yield  driver
+    yield driver
 
 
 def test_text_1(driver):
