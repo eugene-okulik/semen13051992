@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 firstname = 'Ivan'
-lastname = 'Smit'
+lastname = 'Smith'
 email = 'IvanSmith@mail.ru'
 mobile = '375257359284'
 subjects = 'qa-practice'
